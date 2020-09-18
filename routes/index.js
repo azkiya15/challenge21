@@ -1,11 +1,28 @@
 var express = require('express');
 var router = express.Router();
+const path = require("path");
 
 /* GET home page. */
-router.get('/', function(req, res, next) {
+module.exports = function(pool) {
+  router.get('/', function(req, res, next) {
+    let resData = []
 
-  
-  res.render('index', { title: 'Express' });
-});
+    pool.query('SELECT * FROM bread', (err, result) => {
+      resData = result.rows
+      
+      pool.query('SELECT * FROM bread WHERE id = 2', (err, result2) => {
+        resData2 = result2.rows
+        res.render('index', { model: resData, model2: resData2 });
 
-module.exports = router;
+      })
+      
+    })
+    
+    
+  });
+
+  return router
+}
+
+
+// module.exports = router;

@@ -1,11 +1,38 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title><%= title %></title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <title>COBA</title>
   </head>
   <body>
-    <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
+    <h1>List all of books</h1>
+
+<ul>
+
+  <% for (let i = 0; i < model.length; i++) { %>
+    <li>
+      <%= model[i].id %>
+    </li>
+    <li>
+      <%= model[i].string %>
+    </li>
+  <% } %>
+
+</ul>
+
+<h1>List of books by ID</h1>
+<ul>
+
+  <% for (let i = 0; i < model2.length; i++) { %>
+    <li>
+      <%= model2[i].id %>
+    </li>
+    <li>
+      <%= model2[i].string %>
+    </li>
+  <% } %>
+    </ul>
+
+
+
   </body>
 </html>
